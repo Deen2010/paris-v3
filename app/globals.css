@@ -1,0 +1,172 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-cormorant: 'Playfair Display', serif;
+  --font-dm-sans: 'Inter', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #BDB8B0;
+  color: #0F0E0C;
+  font-family: var(--font-dm-sans);
+  -webkit-font-smoothing: antialiased;
+  letter-spacing: 0.01em;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: #BDB8B0;
+}
+::-webkit-scrollbar-thumb {
+  background: #6B1818;
+  border-radius: 2px;
+}
+
+/* Status badges */
+.badge-verfügbar {
+  background: #6B7B5E;
+  color: white;
+}
+.badge-reserviert {
+  background: #C9A882;
+  color: white;
+}
+.badge-verkauft {
+  background: #1A1A1A;
+  color: white;
+}
+
+/* Card hover */
+.product-card {
+  transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              box-shadow 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 50px rgba(26,26,26,0.14);
+}
+
+/* Like button animation */
+@keyframes heartPop {
+  0%   { transform: scale(1); }
+  40%  { transform: scale(1.4); }
+  70%  { transform: scale(0.9); }
+  100% { transform: scale(1); }
+}
+.heart-pop {
+  animation: heartPop 0.4s cubic-bezier(0.36, 0.07, 0.19, 0.97);
+}
+
+/* Image overlay */
+.image-overlay {
+  background: linear-gradient(to top, rgba(26,26,26,0.55) 0%, transparent 55%);
+}
+
+/* Fade in up */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.fade-in-up {
+  animation: fadeInUp 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+/* Slide down (mobile menu) */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.slide-down {
+  animation: slideDown 0.22s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+/* Shimmer skeleton */
+@keyframes shimmer {
+  0%   { background-position: -400px 0; }
+  100% { background-position: 400px 0; }
+}
+.skeleton {
+  background: linear-gradient(90deg, rgba(26,26,26,0.05) 25%, rgba(26,26,26,0.1) 50%, rgba(26,26,26,0.05) 75%);
+  background-size: 800px 100%;
+  animation: shimmer 1.4s infinite linear;
+}
+
+/* Page fade in */
+@keyframes pageFade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+.page-enter {
+  animation: pageFade 0.4s ease forwards;
+}
+
+/* Back to top */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.back-to-top-enter {
+  animation: fadeIn 0.25s ease forwards;
+}
+
+/* Password gate -> site reveal */
+@keyframes curtainUp {
+  0%   { transform: translateY(0); }
+  100% { transform: translateY(-100%); }
+}
+.gate-curtain-out {
+  animation: curtainUp 0.9s cubic-bezier(0.76, 0, 0.24, 1) forwards;
+}
+
+@keyframes gateContentFade {
+  0%   { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(-18px); }
+}
+.gate-content-out {
+  animation: gateContentFade 0.45s cubic-bezier(0.76, 0, 0.24, 1) forwards;
+}
+
+@keyframes siteReveal {
+  0%   { opacity: 0; transform: translateY(24px) scale(0.985); filter: blur(6px); }
+  60%  { opacity: 1; filter: blur(0); }
+  100% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+}
+.site-reveal {
+  animation: siteReveal 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+@keyframes brandPulse {
+  0%   { transform: scale(1); opacity: 1; }
+  50%  { transform: scale(1.08); opacity: 0.85; }
+  100% { transform: scale(1); opacity: 1; }
+}
+.brand-pulse {
+  animation: brandPulse 0.5s ease forwards;
+}
